@@ -1,0 +1,99 @@
+﻿@model oylmData.Data.yorumlar
+
+@{
+    ViewBag.Icon = "fa fa-comments-o";
+    ViewBag.Title = "Yorumları Denetle";
+    ViewBag.altbaslik = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section pagecss
+    {
+    <style>
+        .sagKenar {
+            float: right;
+        }
+    </style>
+}
+
+@section pagescript{
+    <script>
+
+
+
+    $(function () {
+
+        setactive(6);
+    });
+
+    </script>
+}
+
+
+
+
+<form action="/Comments/Edit" method="post">
+
+    <div class="form-horizontal">
+        <h4></h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+        <div class="form-group">
+            <label class="control-label col-md-2"><b> Kullanıcı Mail : </b></label>
+            <div class="col-md-8">
+                <label class="control-label">  @Model.mail</label>
+
+
+                <input id="klikk" value="@Model.id" type="hidden" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2"><b>  İçerik Başlığı :</b></label>
+            <div class="col-md-8">
+                <label class="control-label">  @Model.BlogYazi.Baslik</label>
+
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2"><b>   Yorum :</b></label>
+            <div class="col-md-8" style="word-wrap:normal;">
+                <label class="control-label"><p style="width:100%;word-wrap:break-word;">@Model.content</p> </label>
+
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2"><b>Durum : </b></label>
+            <div class="col-md-8">
+                <select id="statussec" name="statussec">
+
+                    <option @(Model.satutus == 1 ? "selected" : " ") value="1">Aktif</option>
+                    <option @(Model.satutus == 2 ? "selected" : " ") value="2">İnaktif</option>
+
+                </select>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2"><b></b></label>
+            <div class="col-md-8">
+                
+                
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+    </form>
+
+||@Html.ActionLink("Listeye Geri Dön", "Index", "Comments", "")

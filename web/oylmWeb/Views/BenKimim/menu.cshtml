@@ -1,0 +1,26 @@
+﻿
+@model List<oylmData.Data.sertifikalar>
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="~/css/font-awesome.css" media="screen">
+<link rel="stylesheet" type="text/css" href="~/css/style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="~/css/responsive.css" media="screen">
+<div class="sidebar">
+    <div class="archieve-widget widget menum">
+        <h2>Sertifikalar ve Belgeler</h2>
+        <ul class="archieve-list">
+            @foreach (var item in Model)
+            {
+                <li class="list">
+
+                    @Html.ActionLink(item.name, "detay", new { id = item.id })  <i class="fa fa-plus pull-right" aria-hidden="true"></i>
+
+
+                </li>
+
+            }
+
+
+
+        </ul>
+    </div>

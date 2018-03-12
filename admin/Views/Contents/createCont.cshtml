@@ -1,0 +1,109 @@
+﻿
+@model IEnumerable<oylmData.Data.Content>
+
+@section pagescript{
+    <script>
+
+
+
+    $(function () {
+
+        setactive(1);
+    });
+
+
+    $(document).ready(function () {
+
+
+        $("#basliksec").change(function () {
+
+            var baslik = $("#basliksec option:selected").val();
+            console.log(baslik);
+            $.ajax({
+                metod: "POST",
+                url: "/Contents/siralaa",
+                data: { id: baslik },
+                success: function (d) {
+                    $("#yenialan").html(d);
+
+                },
+                error: function (d) {
+                    console.log(d);
+                }
+
+            })
+        });
+
+
+    });
+    </script>
+}
+
+    <style>
+        .beyaz {
+            color: #f9fafb;
+        }
+
+        .textstop {
+            width: 500px;
+                height:35px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+
+<div id="yenialan" style="margin-top:-9px;">
+  
+    <div class="x_panel" style="margin-top:-9px;">
+        <div class="form-group">
+            <div class="col-md-2"> <h5> @Html.ActionLink("+ Sayfaya Yeni İçerik Oluştur", "Create", "", new { @class = "btn btn-success", style = "margin-top: -15px; margin-left: -11px;" })</h5></div>
+            <div class="col-md-6">
+                <p style="margin-left: 17px;margin-top: 7px;">@Html.Action("sirala", "")</p>
+
+
+            </div>
+        </div>
+        <p class="x_content">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th width="15%">
+                            Sayfa Başlığı
+                        </th>
+                        <th width="65%">
+                            Sayfa İçeriği
+                        </th>
+                        <th width="10%">
+                            Durum
+                        </th>
+                        <th width="10%"> </th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Page.name)
+                        </td>
+                        <td>
+                            <div class="textstop">@Html.Raw(item.contenttext)</div>
+                            @*@Html.DisplayFor(modelItem => item.contenttext, new {@class= "textstop" })*@
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status1.status1)
+                        </td>
+                        <td>
+                            <span><a href="Contens/Delete?id=@item.ID" id="sil"><i class="fa fa-trash"></i>Sil</a></span>
+                            <span>//</span>
+                            <span><a href="Contens/Edit?id=@item.ID" id="guncelle"><i class="fa fa-plus"></i>  Güncelle</a></span>
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+    </div>
+</div>

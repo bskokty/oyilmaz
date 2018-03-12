@@ -1,0 +1,90 @@
+﻿@model IEnumerable<oylmData.Data.yorumDanisan>
+
+@{
+    ViewBag.Icon = "fa fa-comments-o";
+    ViewBag.Title = "Yorumları Denetle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section pagecss
+    {
+    <style>
+        .beyaz {
+            color: #f9fafb;
+        }
+
+        .textstop {
+            width: 500px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+}
+@section pagescript{
+    <script>
+
+
+
+    $(function () {
+
+        setactive(7);
+    });
+
+    </script>
+}
+
+
+
+
+<div id="yenialan" style="margin-top:-9px;">
+    <h5></h5>
+    <div class="x_panel" style="margin-top:-9px;">
+
+        <p class="x_content">
+            @ViewBag.abc
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Yorum</th>
+                   
+                        <th>Durum</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td></td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.kadi)
+                        </td>
+                        <td>
+                            <div class="textstop">   @Html.DisplayFor(odelItem => item.comment)</div>
+                            @*@Html.DisplayFor(modelItem => item.contenttext, new {@class= "textstop" })*@
+                        </td>
+                      
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status1.status1)
+                        </td>
+                        <td>
+
+
+                            <span>@Html.ActionLink("Güncelle", "DetailsD", new { id = item.id })</span>
+                            <span>||</span>
+                            <span>@Html.ActionLink("Sil", "DeleteD", new { id = item.id })</span>
+
+
+
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+    </div>
+</div>
+

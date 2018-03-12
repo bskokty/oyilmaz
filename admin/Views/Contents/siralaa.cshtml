@@ -1,0 +1,43 @@
+﻿@model IEnumerable<oylmData.Data.Content>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th width="15%">
+                Sayfa Başlığı
+            </th>
+            <th width="65%">
+                Sayfa İçeriği
+            </th>
+            <th width="10%">
+                Durum
+            </th>
+            <th width="10%"> </th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Page.name)
+            </td>
+            <td>
+                <div class="textstop">@Html.Raw(item.contenttext)</div>
+                @*@Html.DisplayFor(modelItem => item.contenttext, new {@class= "textstop" })*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status1.status1)
+            </td>
+            <td>
+                <span><a href="Edit?id=@item.ID" id="guncelle">Güncelle</a></span>
+                <span>||</span>
+                <span><a href="Contens/Delete?id=@item.ID" id="sil">Sil</a></span>
+
+
+
+            </td>
+        </tr>
+    }
+
+</table>

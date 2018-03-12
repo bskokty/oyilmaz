@@ -1,0 +1,108 @@
+﻿@model oylmData.Data.Contact
+
+@{
+    ViewBag.Icon = "fa fa-user";
+    ViewBag.Title = "İletişim Bilgileri";
+    ViewBag.altbaslik = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section pagecss
+    {
+    <style>
+        .beyaz {
+            color: #f9fafb;
+        }
+    </style>
+<style>
+    .sagKenar {
+        float: right;
+    }
+</style>
+}
+@section pagescript{
+    <script>
+
+
+
+    $(function () {
+
+        setactive(5);
+    });
+
+    </script>
+}
+
+
+@Html.AntiForgeryToken()
+
+<form id="demo-form2" method="post" enctype="multipart/form-data" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+    <div class="form-horizontal">
+        <h4></h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label class="control-label col-md-2"><b>Adres : </b></label>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.adress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.adress, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2"><b>Email : </b></label>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2"><b>Telefon : </b></label>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2"><b>Durum : </b></label>
+            <div class="col-md-8">
+                <select id="statussec" name="statussec">
+
+                    <option @(Model.status == 1 ? "selected" : " ") value="1">Aktif</option>
+                    <option @(Model.status == 2 ? "selected" : " ") value="2">İnaktif</option>
+
+                </select>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-8">
+
+                <input type="submit" value="Güncelle" class="btn btn-primary sagKenar" />
+
+
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<div class="col-md-offset-2 col-md-8">
+    @Html.ActionLink("Listeye Geri Dön", "Index", "Contact", "", new { @class = " sagKenar" })
+</div>
+
+
+
+
+
+
+
+

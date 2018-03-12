@@ -1,0 +1,134 @@
+﻿@model IEnumerable<oylmData.Data.Page>
+
+@{
+    ViewBag.Icon = "fa fa-files-o";
+    ViewBag.Title = "Sayfalar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section pagescript{
+    <script>
+
+
+
+    $(function () {
+
+        setactive(0);
+    });
+
+    </script>
+}
+@*@section pagescript
+{
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script>
+                    $(document).ready(function () {
+
+                        $("#yeni").click(function () {
+
+
+                            //var toData = {
+
+                            //    id: $(this).data("yeni")
+
+                            //}
+                            console.log("Merhaba");
+
+
+
+                            $.ajax({
+                                method: "GET",
+                                url: "/Home/Create",
+                             
+                                success: function (d) {
+
+
+                                    $("#yenialan").html(d);
+
+                                },
+                                error: function (e) {
+                                    console.log(e);
+
+                                }, complete: function () {
+
+
+                                }
+                            })
+
+
+
+
+
+                        });
+
+                    });
+
+
+    </script>*@
+
+@*}*@
+
+@section pagecss
+    {
+    <style>
+        .beyaz {
+           color:#f9fafb;
+        }
+     
+    </style>
+
+
+}
+
+
+<div id="yenialan" style="margin-top:-9px;">
+    <h5> @Html.ActionLink("+ Yeni Sayfa Oluştur", "Create","",new { @class = "btn btn-success" })</h5>
+    <div class="x_panel" style="margin-top:-9px;">
+
+        <div class="x_content">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Adı</th>
+                        <th>İşlemler</th>
+
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td scope="row"></td>
+                            <td>@item.name</td>
+
+
+                            <td>
+                                <span>@Html.ActionLink("Güncelle","Edit",new {id= item.ID })</span>
+                                <span>||</span>
+                                <span>@Html.ActionLink("Sil", "Delete", new { id = item.ID })</span>
+                          
+                                
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                    }
+
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

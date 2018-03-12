@@ -1,0 +1,83 @@
+﻿@model IEnumerable<oylmData.Data.BlogYazi>
+
+@{
+    ViewBag.Icon = "fa fa-pencil";
+    ViewBag.Title = "Blog Yazılarım";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section pagecss
+    {
+    <style>
+        .beyaz {
+            color: #f9fafb;
+        }
+
+        .textstop {
+            width: 500px;
+            height: 35px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+}
+@section pagescript{
+<script>
+
+
+
+    $(function () {
+
+        setactive(2);
+    });
+
+</script>
+}
+<div id="yenialan" style="margin-top:-9px;">
+    <h5> @Html.ActionLink("+ Yeni Blog Yazısı Oluştur", "Create", "", new { @class = "btn btn-success" })</h5>
+    <div class="x_panel" style="margin-top:-9px;">
+
+        <p class="x_content">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th width="15%">
+                          Başlık
+                        </th>
+                        <th width="65%">
+                           İçerik
+                        </th>
+                        <th width="10%">
+                      Tarih
+                        </th>
+                        
+                        <th width="10%"> </th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Baslik)
+                        </td>
+                        <td>
+                            <div class="textstop">@Html.Raw(item.Content)</div>
+                      
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tarih)
+                        </td>
+                
+                        <td>
+                            @Html.ActionLink("Güncelle", "Edit", new { id = item.id }) ||
+                          
+                            @Html.ActionLink("Sil", "Delete", new { id = item.id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+﻿@model IEnumerable<oylmData.Data.Slider>
+@{
+    ViewBag.Title = "Anasayfa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section pagecss
+    {
+<style>
+
+#home-section .tp-caption.small_textt {
+    position: absolute;
+    color: #fff;
+    text-shadow: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    font-family: MuseoSansRoundedRegular;
+    margin: 0px;
+    border-width: 0px;
+    border-style: none;
+    white-space: nowrap;
+}
+#home-section .tp-caption.small_textt.center-align {
+    text-align: center;
+}
+    </style>}
+@section pagescripts{
+    <script>  $(function () {
+
+        setactive(0);
+    });
+
+    </script>
+    }
+<section id="home-section" class="slider1" >
+
+    <!--
+    #################################
+        - THEMEPUNCH BANNER -
+    #################################
+    -->
+    <div class="tp-banner-container">
+        <div class="tp-banner">
+            <ul>
+                @foreach (var item in Model)
+                {
+
+                                    <!-- SLIDE  -->
+                                    <li data-transition="fade" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Intro Slide"  style="height:35%">
+                                        <!-- MAIN IMAGE -->
+                                        @{string a = "http://localhost:63027/"+item.sliderContent; }
+                                        <img src="@a" alt="slidebg1" data-lazyload="@a" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat"/>
+                                      
+                                        <!-- LAYERS -->
+                                        <!-- LAYER NR. 1 -->
+                                        
+                                        <div class="tp-caption finewide_medium_white lft tp-resizeme rs-parallaxlevel-0"
+                                             data-x="0"
+                                             data-y="160"
+                                             data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                             data-speed="1000"
+                                             data-start="1200"
+                                             data-easing="Power3.easeInOut"
+                                             data-splitin="none"
+                                             data-splitout="none"
+                                             data-elementdelay="0.1"
+                                             data-endelementdelay="0.1"
+                                             style="z-home1: 8; max-width: auto; max-height: auto; white-space: normal;text-transform:none">
+                                           @item.buyuk 
+                                        </div>
+
+                                        <!-- LAYER NR. 1 -->
+                                        <div class="tp-caption medium_thin_grey customin"
+                                             data-x="0"
+                                             data-y="230"
+                                             data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                             data-speed="1000"
+                                             data-start="1600"
+                                             data-easing="Power3.easeInOut"
+                                             data-splitin="none"
+                                             data-splitout="none"
+                                             data-elementdelay="0.1"
+                                             data-endelementdelay="0.1"
+                                             style="z-home1: 8; max-width: auto; max-height: auto; white-space: normal;right:12% ">
+                                            <span class="color-skin">@item.orta</span>
+                                        </div>
+
+                                        <!-- LAYER NR. 2 -->
+                                        <div class="tp-caption small_textt customin tp-resizeme rs-parallaxlevel-0"
+                                             data-x="0"
+                                             data-y="290"
+                                             data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                             data-speed="1000"
+                                             data-start="2200"
+                                             data-easing="Power3.easeInOut"
+                                             data-splitin="none"
+                                             data-splitout="none"
+                                             data-elementdelay="0.05"
+                                             data-endelementdelay="0.1"
+                                             style="z-home1: 7; max-width: auto; max-height: auto; white-space:normal;margin-top:1%;right:12%">
+                                            @*right: 382.5px*@
+                                          @item.kucuk
+                                        </div>
+
+                                    </li>
+                                    <!-- SLIDE  -->
+                            
+
+
+
+                }
+               
+          
+            </ul>
+            <div class="tp-bannertimer"></div>
+        </div>
+    </div>
+</section>

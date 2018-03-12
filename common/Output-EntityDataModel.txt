@@ -1,0 +1,9 @@
+﻿Generated model file: oYilmazData.edmx.
+Loading metadata from the database took 00:00:02.1764720.
+Generating the model took 00:00:03.9588364.
+Generated model file: oYilmazData.edmx.
+Loading metadata from the database took 00:00:01.0796109.
+Generating the model took 00:00:02.1499462.
+Generated model file: oYilmazData.edmx.
+Loading metadata from the database took 00:00:01.0484969.
+Generating the model took 00:00:03.4699772.

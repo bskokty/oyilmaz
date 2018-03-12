@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="oylmzModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="alcontent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="content" Type="text" Nullable="false" />
+    <Property Name="baslikid" Type="int" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="altbaslik">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adi" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BlogYazi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Baslik" Type="nvarchar" MaxLength="200" />
+    <Property Name="Content" Type="text" />
+    <Property Name="tarih" Type="date" />
+    <Property Name="aySira" Type="int" />
+    <Property Name="tanitimYazi" Type="text" />
+    <Property Name="folder" Type="text" />
+    <Property Name="path" Type="nvarchar(max)" />
+    <Property Name="aylar" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="calismagun">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="gunler" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adress" Type="nvarchar" MaxLength="300" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="phone" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="Content">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="contenttext" Type="text" Nullable="false" />
+    <Property Name="pageId" Type="int" Nullable="false" />
+    <Property Name="status" Type="int" />
+  </EntityType>
+  <EntityType Name="Education">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="certificated" Type="nvarchar" MaxLength="350" />
+    <Property Name="name" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Information">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="information" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KoclukNedir">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kocluk" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pages">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="picture">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="folder" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="bId" Type="int" Nullable="false" />
+    <Property Name="path" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sliderContent" Type="text" Nullable="false" />
+    <Property Name="buyuk" Type="nvarchar(max)" />
+    <Property Name="orta" Type="nvarchar(max)" />
+    <Property Name="kucuk" Type="nvarchar(max)" />
+    <Property Name="byaziid" Type="int" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="path" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sliYazi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="yazi1" Type="nvarchar(max)" />
+    <Property Name="yazi2" Type="nvarchar(max)" />
+    <Property Name="yazi3" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="tID" />
+    </Key>
+    <Property Name="tID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tokentext" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="enddate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="userId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="yorumlar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mail" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="content" Type="text" Nullable="false" />
+    <Property Name="satutus" Type="int" />
+    <Property Name="blogid" Type="int" />
+    <Property Name="date" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="sertifikalar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="folder" Type="nvarchar" MaxLength="350" Nullable="false" />
+  </EntityType>
+  <EntityType Name="yorumDanisan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kadi" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="comment" Type="text" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_alcontent_altbaslik">
+    <End Role="altbaslik" Type="Self.altbaslik" Multiplicity="1" />
+    <End Role="alcontent" Type="Self.alcontent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="altbaslik">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="alcontent">
+        <PropertyRef Name="baslikid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_alcontent_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="alcontent" Type="Self.alcontent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="alcontent">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contact_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Content_Pages">
+    <End Role="Pages" Type="Self.Pages" Multiplicity="1" />
+    <End Role="Content" Type="Self.Content" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pages">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Content">
+        <PropertyRef Name="pageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Content_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Content" Type="Self.Content" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Content">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KoclukNedir_KoclukNedir">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="KoclukNedir" Type="Self.KoclukNedir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="KoclukNedir">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pics_BlogYazi">
+    <End Role="BlogYazi" Type="Self.BlogYazi" Multiplicity="1" />
+    <End Role="picture" Type="Self.picture" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="BlogYazi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="picture">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Slider_BlogYazi">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="Slider" Type="Self.Slider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Slider">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Slider_BlogYazi1">
+    <End Role="BlogYazi" Type="Self.BlogYazi" Multiplicity="0..1" />
+    <End Role="Slider" Type="Self.Slider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogYazi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Slider">
+        <PropertyRef Name="byaziid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Token_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Token" Type="Self.Token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Token">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_yorumDanisan_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="yorumDanisan" Type="Self.yorumDanisan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="yorumDanisan">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_yorumlar_BlogYazi">
+    <End Role="BlogYazi" Type="Self.BlogYazi" Multiplicity="0..1" />
+    <End Role="yorumlar" Type="Self.yorumlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogYazi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="yorumlar">
+        <PropertyRef Name="blogid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_yorumlar_Status1">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="yorumlar" Type="Self.yorumlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="yorumlar">
+        <PropertyRef Name="satutus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="oylmzModelStoreContainer">
+    <EntitySet Name="alcontent" EntityType="Self.alcontent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="altbaslik" EntityType="Self.altbaslik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BlogYazi" EntityType="Self.BlogYazi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="calismagun" EntityType="Self.calismagun" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Content" EntityType="Self.Content" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Information" EntityType="Self.Information" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KoclukNedir" EntityType="Self.KoclukNedir" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pages" EntityType="Self.Pages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="picture" EntityType="Self.picture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sliYazi" EntityType="Self.sliYazi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="yorumlar" EntityType="Self.yorumlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sertifikalar" EntityType="Self.sertifikalar" Schema="yilmaz" store:Type="Tables" />
+    <EntitySet Name="yorumDanisan" EntityType="Self.yorumDanisan" Schema="yilmaz" store:Type="Tables" />
+    <AssociationSet Name="FK_alcontent_altbaslik" Association="Self.FK_alcontent_altbaslik">
+      <End Role="altbaslik" EntitySet="altbaslik" />
+      <End Role="alcontent" EntitySet="alcontent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_alcontent_Status" Association="Self.FK_alcontent_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="alcontent" EntitySet="alcontent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contact_Status" Association="Self.FK_Contact_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Contact" EntitySet="Contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Content_Pages" Association="Self.FK_Content_Pages">
+      <End Role="Pages" EntitySet="Pages" />
+      <End Role="Content" EntitySet="Content" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Content_Status" Association="Self.FK_Content_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Content" EntitySet="Content" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KoclukNedir_KoclukNedir" Association="Self.FK_KoclukNedir_KoclukNedir">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="KoclukNedir" EntitySet="KoclukNedir" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pics_BlogYazi" Association="Self.FK_pics_BlogYazi">
+      <End Role="BlogYazi" EntitySet="BlogYazi" />
+      <End Role="picture" EntitySet="picture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Slider_BlogYazi" Association="Self.FK_Slider_BlogYazi">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Slider" EntitySet="Slider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Slider_BlogYazi1" Association="Self.FK_Slider_BlogYazi1">
+      <End Role="BlogYazi" EntitySet="BlogYazi" />
+      <End Role="Slider" EntitySet="Slider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Token_User" Association="Self.FK_Token_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Token" EntitySet="Token" />
+    </AssociationSet>
+    <AssociationSet Name="FK_yorumDanisan_Status" Association="Self.FK_yorumDanisan_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="yorumDanisan" EntitySet="yorumDanisan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_yorumlar_BlogYazi" Association="Self.FK_yorumlar_BlogYazi">
+      <End Role="BlogYazi" EntitySet="BlogYazi" />
+      <End Role="yorumlar" EntitySet="yorumlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_yorumlar_Status1" Association="Self.FK_yorumlar_Status1">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="yorumlar" EntitySet="yorumlar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

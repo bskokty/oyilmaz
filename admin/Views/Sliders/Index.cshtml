@@ -1,0 +1,112 @@
+﻿@model IEnumerable<oylmData.Data.Slider>
+
+@{
+    ViewBag.Icon = "fa fa-map-o";
+    ViewBag.Title = "Slider";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section pagescript{
+    <script>
+
+
+
+    $(function () {
+
+        setactive(3);
+    });
+
+
+</script>
+}
+@section pagecss
+    {
+    <style>
+        .beyaz {
+            color: #f9fafb;
+        }
+          .boyut{
+            width:50px;
+            height:50px;
+        }
+          .textstop {
+            width: 200px;
+            height: 35px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+          
+    </style>
+
+
+}
+
+<div  style="margin-top:-9px;">
+    <h5> @Html.ActionLink("+ Yeni Slider Ekle", "Create", "", new { @class = "btn btn-success" })</h5>
+    <div class="x_panel" style="margin-top:-9px;">
+
+        <div id="yenialan" class="x_content" style="text-align: justify" >
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="15%">Slider</th>
+                        <th width="20%">Büyük Yazı</th>
+                        <th width="20%">Orta Yazı</th>
+                        <th width="20%">Küçük Yazı</th>
+                        <th >Blog Bağlantı</th>
+
+
+                        <th width="15%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td scope="row" ></td>
+                            <td>
+                            @{ string src ="/" + item.sliderContent; }
+                            <img src="@src" class="boyut" /></td>
+                            <td><div class="textstop"  >@item.buyuk</div></td>
+                            <td><div class="textstop"  >@item.orta</div></td>
+                            <td><div class="textstop"  >@item.kucuk</div></td>
+                            <td>@{   
+                                if (item.byaziid==null)
+                                {
+                                    @ViewBag.mesaj
+                                }
+                                else
+                                {
+                                    @item.BlogYazi.Baslik
+                                }
+                            }</td>
+                            
+
+                            <td>
+                             
+
+                                <span>@Html.ActionLink("Güncelle", "Edit", new { id = item.ID })</span>
+                                <span>||</span>
+                                <span>@Html.ActionLink("Sil", "Delete", new { id = item.ID })</span>
+
+
+                            </td>
+                        </tr>
+                    }
+
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+

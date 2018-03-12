@@ -1,0 +1,131 @@
+﻿@model IEnumerable<oylmData.Data.alcontent>
+
+@{
+    ViewBag.Icon = "fa fa-check";
+    ViewBag.Title = "Koçluk Nedir?";
+    ViewBag.altbaslik = "Alt Başlık İçeriği";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section pagescript{
+    <script>
+
+
+
+    $(function () {
+
+        setactive(4);
+    });
+
+        $(document).ready(function () {
+
+
+            $("#basliksec").change(function () {
+
+                var baslik = $("#basliksec option:selected").val();
+                console.log(baslik);
+                $.ajax({
+                    metod: "POST",
+                    url: "/Inf/siralaa",
+                    data: { id: baslik },
+                    success: function (d) {
+                        $("#yenialan").html(d);
+
+                    },
+                    error: function (d) {
+                        console.log(d);
+                    }
+
+                })
+            });
+
+
+        });
+    </script>
+}
+@section pagecss
+    {
+    <style>
+        .beyaz {
+            color: #f9fafb;
+        }
+
+        .textstop {
+            width: 500px;
+            height: 35px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    </style>
+}
+
+
+
+<div style="margin-top:-9px;">
+
+
+
+
+
+       
+
+    <div class="form-group">
+        <div class="col-md-1"><h5> @Html.ActionLink("+ Yeni İçerik Ekle", "altbaslikContentekle", "", new { @class = "btn btn-info" })</h5></div>
+        <div class="col-md-6">
+            <p style="margin-left: 33px;margin-top: 20px;">@Html.Action("siralapar", "")</p>
+
+
+        </div>
+    </div>
+
+    <div class="x_panel" style="margin-top:-9px;">
+
+        <div  id="yenialan" class="x_content">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>İçerik</th>
+                        <th>Başlık</th>
+                        <th>Durum</th>
+                        <th></th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+
+
+
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td scope="row"></td>
+                            <td> <div class="textstop">@Html.Raw(item.content)</div></td>
+                            <td>@Html.DisplayFor(modelItem => item.altbaslik.adi)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Status1.status1)</td>
+
+
+                            <td>
+
+                           
+                                <span>@Html.ActionLink("Güncelle", "Editcontent", new { id = item.id })</span>
+                                <span>||</span>
+                                <span>@Html.ActionLink("Sil", "Deletealticerik", new { id = item.id })</span>
+
+                            </td>
+                        </tr>
+                    }
+
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

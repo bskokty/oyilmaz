@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="oylmzModelStoreContainer" CdmEntityContainer="oylmzEntities">
+    <EntitySetMapping Name="alcontents">
+      <EntityTypeMapping TypeName="oylmzModel.alcontent">
+        <MappingFragment StoreEntitySet="alcontent">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="baslikid" ColumnName="baslikid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="altbasliks">
+      <EntityTypeMapping TypeName="oylmzModel.altbaslik">
+        <MappingFragment StoreEntitySet="altbaslik">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="adi" ColumnName="adi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogYazis">
+      <EntityTypeMapping TypeName="oylmzModel.BlogYazi">
+        <MappingFragment StoreEntitySet="BlogYazi">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+          <ScalarProperty Name="aySira" ColumnName="aySira" />
+          <ScalarProperty Name="tanitimYazi" ColumnName="tanitimYazi" />
+          <ScalarProperty Name="folder" ColumnName="folder" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="aylar" ColumnName="aylar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="calismaguns">
+      <EntityTypeMapping TypeName="oylmzModel.calismagun">
+        <MappingFragment StoreEntitySet="calismagun">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gunler" ColumnName="gunler" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="oylmzModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contents">
+      <EntityTypeMapping TypeName="oylmzModel.Content">
+        <MappingFragment StoreEntitySet="Content">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="contenttext" ColumnName="contenttext" />
+          <ScalarProperty Name="pageId" ColumnName="pageId" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Educations">
+      <EntityTypeMapping TypeName="oylmzModel.Education">
+        <MappingFragment StoreEntitySet="Education">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="certificated" ColumnName="certificated" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Information">
+      <EntityTypeMapping TypeName="oylmzModel.Information">
+        <MappingFragment StoreEntitySet="Information">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="information1" ColumnName="information" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KoclukNedirs">
+      <EntityTypeMapping TypeName="oylmzModel.KoclukNedir">
+        <MappingFragment StoreEntitySet="KoclukNedir">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Kocluk" ColumnName="Kocluk" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pages">
+      <EntityTypeMapping TypeName="oylmzModel.Page">
+        <MappingFragment StoreEntitySet="Pages">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pictures">
+      <EntityTypeMapping TypeName="oylmzModel.picture">
+        <MappingFragment StoreEntitySet="picture">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="folder" ColumnName="folder" />
+          <ScalarProperty Name="bId" ColumnName="bId" />
+          <ScalarProperty Name="path" ColumnName="path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sliders">
+      <EntityTypeMapping TypeName="oylmzModel.Slider">
+        <MappingFragment StoreEntitySet="Slider">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="sliderContent" ColumnName="sliderContent" />
+          <ScalarProperty Name="buyuk" ColumnName="buyuk" />
+          <ScalarProperty Name="orta" ColumnName="orta" />
+          <ScalarProperty Name="kucuk" ColumnName="kucuk" />
+          <ScalarProperty Name="byaziid" ColumnName="byaziid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="path" ColumnName="path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sliYazis">
+      <EntityTypeMapping TypeName="oylmzModel.sliYazi">
+        <MappingFragment StoreEntitySet="sliYazi">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="yazi1" ColumnName="yazi1" />
+          <ScalarProperty Name="yazi2" ColumnName="yazi2" />
+          <ScalarProperty Name="yazi3" ColumnName="yazi3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="oylmzModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="status1" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tokens">
+      <EntityTypeMapping TypeName="oylmzModel.Token">
+        <MappingFragment StoreEntitySet="Token">
+          <ScalarProperty Name="tID" ColumnName="tID" />
+          <ScalarProperty Name="tokentext" ColumnName="tokentext" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="oylmzModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="yorumlars">
+      <EntityTypeMapping TypeName="oylmzModel.yorumlar">
+        <MappingFragment StoreEntitySet="yorumlar">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="satutus" ColumnName="satutus" />
+          <ScalarProperty Name="blogid" ColumnName="blogid" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="yorumDanisans">
+      <EntityTypeMapping TypeName="oylmzModel.yorumDanisan">
+        <MappingFragment StoreEntitySet="yorumDanisan">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="kadi" ColumnName="kadi" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sertifikalars">
+      <EntityTypeMapping TypeName="oylmzModel.sertifikalar">
+        <MappingFragment StoreEntitySet="sertifikalar">
+          <ScalarProperty Name="folder" ColumnName="folder" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

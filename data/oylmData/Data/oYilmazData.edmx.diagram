@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="33b03b95efb045b3a39e10b318648ba8" Name="Diagram1">
+        <EntityTypeShape EntityType="oylmzModel.alcontent" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.altbaslik" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.BlogYazi" Width="1.5" PointX="3.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.calismagun" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.Contact" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.Content" Width="1.5" PointX="6" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.Education" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.Information" Width="1.5" PointX="8.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.KoclukNedir" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.Page" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.picture" Width="1.5" PointX="6" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.Slider" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.sliYazi" Width="1.5" PointX="8.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.Status" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.Token" Width="1.5" PointX="8" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.User" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="oylmzModel.yorumlar" Width="1.5" PointX="6" PointY="14.25" IsExpanded="true" />
+        <AssociationConnector Association="oylmzModel.FK_alcontent_altbaslik" ManuallyRouted="false" />
+        <AssociationConnector Association="oylmzModel.FK_alcontent_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="oylmzModel.FK_pics_BlogYazi" ManuallyRouted="false" />
+        <AssociationConnector Association="oylmzModel.FK_Slider_BlogYazi1" ManuallyRouted="false" />
+        <AssociationConnector Association="oylmzModel.FK_yorumlar_BlogYazi" ManuallyRouted="false" />
+        <AssociationConnector Association="oylmzModel.FK_Contact_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="oylmzModel.FK_Content_Pages" ManuallyRouted="false" />
+        <AssociationConnector Association="oylmzModel.FK_Content_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="oylmzModel.FK_KoclukNedir_KoclukNedir" ManuallyRouted="false" />
+        <AssociationConnector Association="oylmzModel.FK_Slider_BlogYazi" ManuallyRouted="false" />
+        <AssociationConnector Association="oylmzModel.FK_yorumlar_Status1" ManuallyRouted="false" />
+        <AssociationConnector Association="oylmzModel.FK_Token_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="oylmzModel.yorumDanisan" Width="1.5" PointX="3" PointY="20.625" />
+        <AssociationConnector Association="oylmzModel.FK_yorumDanisan_Status" />
+        <EntityTypeShape EntityType="oylmzModel.sertifikalar" Width="1.5" PointX="10.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

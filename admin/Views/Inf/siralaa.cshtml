@@ -1,0 +1,50 @@
+﻿@model IEnumerable<oylmData.Data.alcontent>
+
+
+
+<div class="x_content">
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>İçerik</th>
+                <th>Başlık</th>
+                <th>Durum</th>
+                <th></th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+
+
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td scope="row"></td>
+                    <td> <div class="textstop">@Html.Raw(item.content)</div></td>
+                    <td>@Html.DisplayFor(modelItem => item.altbaslik.adi)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Status1.status1)</td>
+
+
+                    <td>
+
+
+                        <span>@Html.ActionLink("Güncelle", "Editcontent", new { id = item.id })</span>
+                        <span>||</span>
+                        <span>@Html.ActionLink("Sil", "Deletealticerik", new { id = item.id })</span>
+
+                    </td>
+                </tr>
+            }
+
+
+
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,156 @@
+﻿@model List<oylmData.Data.altbaslik>
+
+@{
+    ViewBag.Icon = "fa fa-check";
+    ViewBag.Title = "Koçluk Nedir?";
+    ViewBag.altbaslik = "Alt Başlık İçeriği Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@section pagecss
+    {
+    <style>
+        .sagKenar {
+            float: right;
+        }
+    </style>
+
+}
+@section pagescript{
+
+    <script>
+
+
+
+    $(function () {
+
+        setactive(4);
+    });
+
+    </script>
+
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script>
+
+        CKEDITOR.replace("editor1");
+    </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+
+
+            $("#pagesec").change(function () {
+                var deger = $(this).val();
+                console.log(deger);
+            });
+
+
+            $("#buton").click(function () {
+
+
+
+                var pageID = $("#pagesec option:selected").val();
+                var aktif = $("#statussec option:selected").val();
+                var cont = CKEDITOR.instances.editor1.getData();
+
+                console.log(pageID);
+
+                console.log(cont);
+                console.log(aktif);
+
+                $.ajax({
+                    metod: "POST",
+                    url: "/Inf/createCont",
+                    data: { pageID: pageID, cont: cont, aktif: aktif },
+                    success: function (d) {
+
+
+
+                        $("#paste").html(d);
+
+
+                        console.log("merhaba");
+
+
+                    },
+                    error: function (d) {
+                        console.log(d);
+                    }
+
+
+                });
+            });
+        });
+    </script>
+
+
+
+}
+
+
+
+
+
+
+<div class="form-horizontal">
+    <h4></h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2"><b>Sayfa Başlığı seçin : </b></label>
+        <div class="col-md-4">
+            <select id="pagesec" name="pagesec">
+                <option value="-1">Lütfen işlem yapmak istediğiniz başlığı seçiniz</option>
+                @foreach (var item in Model)
+                {
+                    <option value="@item.id">@item.adi</option>
+                }
+
+
+            </select>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label col-md-3"><b>Durum : </b></label>
+                <div class="col-md-2">
+                    <select id="statussec">
+
+                        <option value="1">Aktif</option>
+                        <option value="2">İnaktif</option>
+
+                    </select>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2"><b>İçerik : </b></label>
+        <div class="col-md-8">
+            <textarea id="editor1"></textarea>
+
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-8">
+
+            <button class="btn btn-primary sagKenar" id="buton">Ekle</button>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-md-offset-2 col-md-8">
+    @Html.ActionLink("Listeye Geri Dön", "alticerikindex", "Inf", "", new { @class = " sagKenar" })
+</div>

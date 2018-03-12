@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="oylmzModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="alcontent">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="baslikid" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="altbaslik" Relationship="Self.FK_alcontent_altbaslik" FromRole="alcontent" ToRole="altbaslik" />
+    <NavigationProperty Name="Status1" Relationship="Self.FK_alcontent_Status" FromRole="alcontent" ToRole="Status" />
+  </EntityType>
+  <EntityType Name="altbaslik">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="alcontents" Relationship="Self.FK_alcontent_altbaslik" FromRole="altbaslik" ToRole="alcontent" />
+  </EntityType>
+  <EntityType Name="BlogYazi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="tarih" Type="DateTime" Precision="0" />
+    <Property Name="aySira" Type="Int32" />
+    <Property Name="tanitimYazi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="folder" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="aylar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="picture" Relationship="Self.FK_pics_BlogYazi" FromRole="BlogYazi" ToRole="picture" />
+    <NavigationProperty Name="Sliders" Relationship="Self.FK_Slider_BlogYazi1" FromRole="BlogYazi" ToRole="Slider" />
+    <NavigationProperty Name="yorumlars" Relationship="Self.FK_yorumlar_BlogYazi" FromRole="BlogYazi" ToRole="yorumlar" />
+  </EntityType>
+  <EntityType Name="calismagun">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="gunler" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adress" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="status" Type="Int32" />
+    <NavigationProperty Name="Status1" Relationship="Self.FK_Contact_Status" FromRole="Contact" ToRole="Status" />
+  </EntityType>
+  <EntityType Name="Content">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="contenttext" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pageId" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Int32" />
+    <NavigationProperty Name="Page" Relationship="Self.FK_Content_Pages" FromRole="Content" ToRole="Pages" />
+    <NavigationProperty Name="Status1" Relationship="Self.FK_Content_Status" FromRole="Content" ToRole="Status" />
+  </EntityType>
+  <EntityType Name="Education">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="certificated" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Information">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="information1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KoclukNedir">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kocluk" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Status1" Relationship="Self.FK_KoclukNedir_KoclukNedir" FromRole="KoclukNedir" ToRole="Status" />
+  </EntityType>
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Contents" Relationship="Self.FK_Content_Pages" FromRole="Pages" ToRole="Content" />
+  </EntityType>
+  <EntityType Name="picture">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="folder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="bId" Type="Int32" Nullable="false" />
+    <Property Name="path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="BlogYazi" Relationship="Self.FK_pics_BlogYazi" FromRole="picture" ToRole="BlogYazi" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sliderContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="buyuk" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="orta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kucuk" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="byaziid" Type="Int32" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BlogYazi" Relationship="Self.FK_Slider_BlogYazi1" FromRole="Slider" ToRole="BlogYazi" />
+    <NavigationProperty Name="Status1" Relationship="Self.FK_Slider_BlogYazi" FromRole="Slider" ToRole="Status" />
+  </EntityType>
+  <EntityType Name="sliYazi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="yazi1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="yazi2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="yazi3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="status1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="alcontents" Relationship="Self.FK_alcontent_Status" FromRole="Status" ToRole="alcontent" />
+    <NavigationProperty Name="Contacts" Relationship="Self.FK_Contact_Status" FromRole="Status" ToRole="Contact" />
+    <NavigationProperty Name="Contents" Relationship="Self.FK_Content_Status" FromRole="Status" ToRole="Content" />
+    <NavigationProperty Name="KoclukNedirs" Relationship="Self.FK_KoclukNedir_KoclukNedir" FromRole="Status" ToRole="KoclukNedir" />
+    <NavigationProperty Name="Sliders" Relationship="Self.FK_Slider_BlogYazi" FromRole="Status" ToRole="Slider" />
+    <NavigationProperty Name="yorumlars" Relationship="Self.FK_yorumlar_Status1" FromRole="Status" ToRole="yorumlar" />
+    <NavigationProperty Name="yorumDanisans" Relationship="oylmzModel.FK_yorumDanisan_Status" FromRole="Status" ToRole="yorumDanisan" />
+  </EntityType>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="tID" />
+    </Key>
+    <Property Name="tID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tokentext" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="enddate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Token_User" FromRole="Token" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Tokens" Relationship="Self.FK_Token_User" FromRole="User" ToRole="Token" />
+  </EntityType>
+  <EntityType Name="yorumlar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="satutus" Type="Int32" />
+    <Property Name="blogid" Type="Int32" />
+    <Property Name="date" Type="DateTime" Precision="7" />
+    <NavigationProperty Name="BlogYazi" Relationship="Self.FK_yorumlar_BlogYazi" FromRole="yorumlar" ToRole="BlogYazi" />
+    <NavigationProperty Name="Status" Relationship="Self.FK_yorumlar_Status1" FromRole="yorumlar" ToRole="Status" />
+  </EntityType>
+  <Association Name="FK_alcontent_altbaslik">
+    <End Role="altbaslik" Type="Self.altbaslik" Multiplicity="1" />
+    <End Role="alcontent" Type="Self.alcontent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="altbaslik">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="alcontent">
+        <PropertyRef Name="baslikid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_alcontent_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="alcontent" Type="Self.alcontent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="alcontent">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pics_BlogYazi">
+    <End Role="BlogYazi" Type="Self.BlogYazi" Multiplicity="1" />
+    <End Role="picture" Type="Self.picture" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="BlogYazi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="picture">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Slider_BlogYazi1">
+    <End Role="BlogYazi" Type="Self.BlogYazi" Multiplicity="0..1" />
+    <End Role="Slider" Type="Self.Slider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogYazi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Slider">
+        <PropertyRef Name="byaziid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_yorumlar_BlogYazi">
+    <End Role="BlogYazi" Type="Self.BlogYazi" Multiplicity="0..1" />
+    <End Role="yorumlar" Type="Self.yorumlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogYazi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="yorumlar">
+        <PropertyRef Name="blogid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contact_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Content_Pages">
+    <End Role="Pages" Type="Self.Page" Multiplicity="1" />
+    <End Role="Content" Type="Self.Content" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pages">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Content">
+        <PropertyRef Name="pageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Content_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Content" Type="Self.Content" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Content">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KoclukNedir_KoclukNedir">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="KoclukNedir" Type="Self.KoclukNedir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="KoclukNedir">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Slider_BlogYazi">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="Slider" Type="Self.Slider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Slider">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_yorumlar_Status1">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="yorumlar" Type="Self.yorumlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="yorumlar">
+        <PropertyRef Name="satutus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Token_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Token" Type="Self.Token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Token">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="oylmzEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="alcontents" EntityType="Self.alcontent" />
+    <EntitySet Name="altbasliks" EntityType="Self.altbaslik" />
+    <EntitySet Name="BlogYazis" EntityType="Self.BlogYazi" />
+    <EntitySet Name="calismaguns" EntityType="Self.calismagun" />
+    <EntitySet Name="Contacts" EntityType="Self.Contact" />
+    <EntitySet Name="Contents" EntityType="Self.Content" />
+    <EntitySet Name="Educations" EntityType="Self.Education" />
+    <EntitySet Name="Information" EntityType="Self.Information" />
+    <EntitySet Name="KoclukNedirs" EntityType="Self.KoclukNedir" />
+    <EntitySet Name="Pages" EntityType="Self.Page" />
+    <EntitySet Name="pictures" EntityType="Self.picture" />
+    <EntitySet Name="Sliders" EntityType="Self.Slider" />
+    <EntitySet Name="sliYazis" EntityType="Self.sliYazi" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
+    <EntitySet Name="Tokens" EntityType="Self.Token" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="yorumlars" EntityType="Self.yorumlar" />
+    <AssociationSet Name="FK_alcontent_altbaslik" Association="Self.FK_alcontent_altbaslik">
+      <End Role="altbaslik" EntitySet="altbasliks" />
+      <End Role="alcontent" EntitySet="alcontents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_alcontent_Status" Association="Self.FK_alcontent_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="alcontent" EntitySet="alcontents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pics_BlogYazi" Association="Self.FK_pics_BlogYazi">
+      <End Role="BlogYazi" EntitySet="BlogYazis" />
+      <End Role="picture" EntitySet="pictures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Slider_BlogYazi1" Association="Self.FK_Slider_BlogYazi1">
+      <End Role="BlogYazi" EntitySet="BlogYazis" />
+      <End Role="Slider" EntitySet="Sliders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_yorumlar_BlogYazi" Association="Self.FK_yorumlar_BlogYazi">
+      <End Role="BlogYazi" EntitySet="BlogYazis" />
+      <End Role="yorumlar" EntitySet="yorumlars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contact_Status" Association="Self.FK_Contact_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Contact" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Content_Pages" Association="Self.FK_Content_Pages">
+      <End Role="Pages" EntitySet="Pages" />
+      <End Role="Content" EntitySet="Contents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Content_Status" Association="Self.FK_Content_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Content" EntitySet="Contents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KoclukNedir_KoclukNedir" Association="Self.FK_KoclukNedir_KoclukNedir">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="KoclukNedir" EntitySet="KoclukNedirs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Slider_BlogYazi" Association="Self.FK_Slider_BlogYazi">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Slider" EntitySet="Sliders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_yorumlar_Status1" Association="Self.FK_yorumlar_Status1">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="yorumlar" EntitySet="yorumlars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Token_User" Association="Self.FK_Token_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Token" EntitySet="Tokens" />
+    </AssociationSet>
+    <EntitySet Name="yorumDanisans" EntityType="oylmzModel.yorumDanisan" />
+    <AssociationSet Name="FK_yorumDanisan_Status" Association="oylmzModel.FK_yorumDanisan_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="yorumDanisan" EntitySet="yorumDanisans" />
+    </AssociationSet>
+    <EntitySet Name="sertifikalars" EntityType="oylmzModel.sertifikalar" />
+  </EntityContainer>
+  <EntityType Name="yorumDanisan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kadi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="comment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Status1" Relationship="oylmzModel.FK_yorumDanisan_Status" FromRole="yorumDanisan" ToRole="Status" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_yorumDanisan_Status">
+    <End Type="oylmzModel.Status" Role="Status" Multiplicity="1" />
+    <End Type="oylmzModel.yorumDanisan" Role="yorumDanisan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="yorumDanisan">
+        <PropertyRef Name="status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sertifikalar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="folder" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

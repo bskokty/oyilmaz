@@ -1,0 +1,340 @@
+﻿@model oylmData.Data.sertifikalar
+
+
+@{
+    ViewBag.Title = "Belgeler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section pagecss{
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="~/css/font-awesome.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="~/css/responsive.css" media="screen">
+    <style>
+        .hiki {
+            font-family: MuseoSansRoundedRegular;
+            font-weight: 700;
+            margin: 0 0 15px;
+            font-size: 15px;
+            margin-bottom: 30px;
+            color: darkorange;
+        }
+
+        .textstop {
+            white-space: nowrap;
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            -ms-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+        }
+
+        .sagKenar {
+            float: right;
+        }
+
+        .page-banner-sectionn {
+            margin-top: 150px;
+            padding: 80px 0;
+            position: relative;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+        }
+
+            .page-banner-sectionn .container {
+                position: relative;
+                z-index: 2;
+                text-align: center;
+                background-color: #fff;
+                padding: 20px 0;
+                width: 50%;
+            }
+
+            .page-banner-sectionn h2 {
+                color: #F7C51E;
+                font-size: 17px;
+                font-family: MuseoSansRoundedRegular;
+                /*font-weight: 700;*/
+                margin: 0 0 15px;
+                font-size: 26px;
+                margin-bottom: 10px;
+            }
+
+            .page-banner-sectionn ul.page-depth {
+                margin: 0;
+                padding: 0;
+                text-align: center;
+            }
+
+                .page-banner-sectionn ul.page-depth li {
+                    display: inline-block;
+                    margin-left: 1px;
+                }
+
+                    .page-banner-sectionn ul.page-depth li a {
+                        display: inline-block;
+                        text-decoration: none;
+                        transition: all 0.2s ease-in-out;
+                        -moz-transition: all 0.2s ease-in-out;
+                        -webkit-transition: all 0.2s ease-in-out;
+                        -o-transition: all 0.2s ease-in-out;
+                        font-size: 14px;
+                        font-family: MuseoSansRoundedRegular;
+                        color: #222222;
+                    }
+
+                        .page-banner-sectionn ul.page-depth li a:hover {
+                            color: #666666;
+                        }
+
+                    .page-banner-sectionn ul.page-depth li:before {
+                        content: '-';
+                        font-size: 14px;
+                        font-family: MuseoSansRoundedRegular;
+                        font-weight: 700;
+                        color: #222222;
+                        margin-right: 5px;
+                    }
+
+                    .page-banner-sectionn ul.page-depth li:first-child:before {
+                        content: '';
+                        margin-right: 0;
+                    }
+
+        #comment_form input, #comment_form textarea {
+            border: 4px solid rgba(0,0,0,0.1);
+            padding: 8px 10px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            outline: 0;
+        }
+
+
+            #comment_form input[type="submit"] {
+                cursor: pointer;
+                background: -webkit-linear-gradient(top, #efefef, #ddd);
+                background: -moz-linear-gradient(top, #efefef, #ddd);
+                background: -ms-linear-gradient(top, #efefef, #ddd);
+                background: -o-linear-gradient(top, #efefef, #ddd);
+                background: linear-gradient(top, #efefef, #ddd);
+                color: #333;
+                text-shadow: 0px 1px 1px rgba(255,255,255,1);
+                border: 1px solid #ccc;
+            }
+
+                #comment_form input[type="submit"]:hover {
+                    background: -webkit-linear-gradient(top, #eee, #ccc);
+                    background: -moz-linear-gradient(top, #eee, #ccc);
+                    background: -ms-linear-gradient(top, #eee, #ccc);
+                    background: -o-linear-gradient(top, #eee, #ccc);
+                    background: linear-gradient(top, #eee, #ccc);
+                    border: 1px solid #bbb;
+                }
+
+                #comment_form input[type="submit"]:active {
+                    background: -webkit-linear-gradient(top, #ddd, #aaa);
+                    background: -moz-linear-gradient(top, #ddd, #aaa);
+                    background: -ms-linear-gradient(top, #ddd, #aaa);
+                    background: -o-linear-gradient(top, #ddd, #aaa);
+                    background: linear-gradient(top, #ddd, #aaa);
+                    border: 1px solid #999;
+                }
+
+        #comment_form div {
+            margin-bottom: 8px;
+        }
+
+        .panel-shadow {
+            box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 3px;
+        }
+
+        .panel-white {
+            border: 1px solid #dddddd;
+        }
+
+            .panel-white .panel-heading {
+                color: #333;
+                background-color: #fff;
+                border-color: #ddd;
+            }
+
+            .panel-white .panel-footer {
+                background-color: #fff;
+                border-color: #ddd;
+            }
+
+        .post .post-heading {
+            height: 95px;
+            padding: 20px 15px;
+        }
+
+            .post .post-heading .avatar {
+                width: 60px;
+                height: 60px;
+                display: block;
+                margin-right: 15px;
+            }
+
+            .post .post-heading .meta .title {
+                margin-bottom: 0;
+            }
+
+                .post .post-heading .meta .title a {
+                    color: black;
+                }
+
+                    .post .post-heading .meta .title a:hover {
+                        color: #aaaaaa;
+                    }
+
+            .post .post-heading .meta .time {
+                margin-top: 8px;
+                color: #999;
+            }
+
+        .post .post-image .image {
+            width: 100%;
+            height: auto;
+        }
+
+        .post .post-description {
+            padding: 15px;
+        }
+
+            .post .post-description p {
+                font-size: 14px;
+            }
+
+            .post .post-description .stats {
+                margin-top: 20px;
+            }
+
+                .post .post-description .stats .stat-item {
+                    display: inline-block;
+                    margin-right: 15px;
+                }
+
+                    .post .post-description .stats .stat-item .icon {
+                        margin-right: 8px;
+                    }
+
+        .post .post-footer {
+            border-top: 1px solid #ddd;
+            padding: 15px;
+        }
+
+            .post .post-footer .input-group-addon a {
+                color: #454545;
+            }
+
+            .post .post-footer .comments-list {
+                padding: 0;
+                margin-top: 20px;
+                list-style-type: none;
+            }
+
+                .post .post-footer .comments-list .comment {
+                    display: block;
+                    width: 100%;
+                    margin: 20px 0;
+                }
+
+                    .post .post-footer .comments-list .comment .avatar {
+                        width: 35px;
+                        height: 35px;
+                    }
+
+                    .post .post-footer .comments-list .comment .comment-heading {
+                        display: block;
+                        width: 100%;
+                    }
+
+                        .post .post-footer .comments-list .comment .comment-heading .user {
+                            font-size: 14px;
+                            font-weight: bold;
+                            display: inline;
+                            margin-top: 0;
+                            margin-right: 10px;
+                        }
+
+                        .post .post-footer .comments-list .comment .comment-heading .time {
+                            font-size: 12px;
+                            color: #aaa;
+                            margin-top: 0;
+                            display: inline;
+                        }
+
+                    .post .post-footer .comments-list .comment .comment-body {
+                        margin-left: 50px;
+                    }
+
+                    .post .post-footer .comments-list .comment > .comments-list {
+                        margin-left: 50px;
+                    }
+    </style>
+}
+@section pagescripts{
+
+    <script src="~/js/modernizr-2.6.2.min.js"></script>
+    <script>
+ window.onload = function () {
+
+            $('.dropdown').click(function () {
+                $(this).siblings(".submenu").toggleClass('hide');
+
+
+            });
+        }
+    </script>
+    <script>
+        $(function () {
+
+            setactive(1);
+        });
+
+    </script>
+
+}
+
+<section class="page-banner-sectionn" style="height: 200px;background-color:darkorange;">
+
+    <div class="container" style="background-color: transparent;">
+        <h2 style="font-family: fantasy; font-size:35px;color:white">Bana Dair</h2>
+                @*<ul class="page-depth">
+                        <li><a href="#">Bırak hayat sana rağmen değil, seninle beraber aksın.</a></li>
+        <img src="~/images/purple-lines-on-colorful-background_23-2147746618.jpg" />
+                    </ul>*@
+    </div>
+
+
+</section>
+
+<section class="blog-section" style="padding: 15px 0;">
+    <div class="container">
+        <div class="row" id="yenialan" style="">
+            <div class="col-md-9" style="border-right-style: double; border-right-color:#ffba00;">
+
+
+                <div style="border-bottom-color: #0f91c3; border-bottom-style: double;">
+
+                    @{string a = "http://localhost:63027/" + Model.folder; }
+                    <iframe src="@a" style="width:100%;height:600px"scrolling="no"embeded="true"></iframe>
+
+                    <p><br /></p>
+                    <p><br /></p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+                @Html.Action("menu")
+            </div>
+        </div>
+    </div>
+</section>
+

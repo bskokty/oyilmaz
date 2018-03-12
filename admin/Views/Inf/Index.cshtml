@@ -1,0 +1,95 @@
+﻿@model IEnumerable<oylmData.Data.KoclukNedir>
+
+@{
+    ViewBag.Icon = "fa fa-check";
+    ViewBag.Title = "Koçluk Nedir?";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section pagescript{
+    <script>
+
+
+
+    $(function () {
+
+        setactive(4);
+    });
+
+    </script>
+}
+@section pagecss
+    {
+    <style>
+        .beyaz {
+            color: #f9fafb;
+        }
+
+        .textstop {
+            width: 500px;
+            height: 35px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+}
+
+
+<div id="yenialan" style="margin-top:-9px;">
+   <div style="margin-top:-10px;margin-left:-12px;">
+    <div class="col-md-2">
+        <h5> @Html.ActionLink("+ Sayfaya Yeni İçerik Ekle", "Create", "", new { @class = "btn btn-success", style= "width:100%; height:100%" })</h5> 
+    </div>
+    <div class="col-md-2" style="margin-left:-22px;">
+        <h5> @Html.ActionLink("+ Alt Başlıklara Git", "altbaslikIndex", "", new { @class = "btn btn-info", style = "width:100%; height:100%" })</h5>
+    </div>
+</div>
+    
+    
+    <div class="x_panel" style="margin-top:-9px;">
+
+        <div class="x_content">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>İçerik</th>
+                        <th>Durum</th>
+                        <th></th>
+
+
+                      
+                    </tr>
+                </thead>
+                <tbody>
+
+
+
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td scope="row"></td>
+                            <td><div class="textstop">@Html.Raw(item.Kocluk)</div></td>
+                            <td>@Html.DisplayFor(modelItem => item.Status1.status1)</td>
+
+                            <td>
+                             
+
+                                <span>@Html.ActionLink("Güncelle", "Edit", new { id = item.id })</span>
+                                <span>||</span>
+                                <span>@Html.ActionLink("Sil", "Delete", new { id = item.id })</span>
+
+                            </td>
+                        </tr>
+                    }
+
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

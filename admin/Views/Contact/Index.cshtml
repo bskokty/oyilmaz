@@ -1,0 +1,100 @@
+﻿@model IEnumerable<oylmData.Data.Contact>
+
+@{
+    ViewBag.Icon = "fa fa-user";
+    ViewBag.Title = "İletişim Bilgileri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section pagecss
+    {
+    <style>
+        .beyaz {
+            color: #f9fafb;
+        }
+
+        .textstop {
+            width: 500px;
+          
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+}
+@section pagescript{
+    <script>
+
+
+
+    $(function () {
+
+        setactive(5);
+    });
+
+    </script>
+}
+
+
+
+
+<div id="yenialan" style="margin-top:-9px;">
+    <h5> @Html.ActionLink("+ Yeni İletişim Bilgisi Elke", "Create", "", new { @class = "btn btn-success" })</h5>
+    <div class="x_panel" style="margin-top:-9px;">
+
+        <div class="x_content">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Adres</th>
+                        <th>Email</th>
+                        <th>Telefon</th>
+                        <th>Durum</th>
+                        <th></th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                   
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td scope="row"></td>
+                                <td><div class="textstop">@item.adress</div></td>
+                                <td>@item.email</td>
+                                <td>@item.phone</td>
+                                <td>@Html.DisplayFor(modelItem => item.Status1.status1)</td>
+                                <td>
+                                   
+
+                                    <span>@Html.ActionLink("Güncelle", "Edit", new { id = item.Id })</span>
+                                    <span>||</span>
+                                    <span>@Html.ActionLink("Sil", "Delete", new { id = item.Id })</span>
+
+
+                                </td>
+                            </tr>
+                        }
+                    
+
+
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

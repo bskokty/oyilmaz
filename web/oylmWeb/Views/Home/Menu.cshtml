@@ -1,0 +1,146 @@
+﻿
+@model List<oylmData.Data.Content>
+<link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="~/css/jquery.bxslider.css" media="screen">
+<link rel="stylesheet" type="text/css" href="~/css/magnific-popup.css" media="screen">
+<link rel="stylesheet" type="text/css" href="~/css/owl.carousel.css" media="screen">
+<link rel="stylesheet" type="text/css" href="~/css/owl.theme.css" media="screen">
+<link rel="stylesheet" type="text/css" href="~/css/font-awesome.css" media="screen">
+<link rel="stylesheet" type="text/css" href="~/css/animate.css" media="screen">
+
+<!--Favicon style -->
+<link rel="shortcut icon" href="~/images/favicon.png" type="image/x-icon">
+
+<!-- REVOLUTION BANNER CSS SETTINGS -->
+<link rel="stylesheet" type="text/css" href="~/css/settings.css" media="screen" />
+
+<link rel="stylesheet" type="text/css" href="~/css/style.css" media="screen">
+<link rel="stylesheet" type="text/css" href="~/css/responsive.css" media="screen">
+   <!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+<ul class="nav navbar-nav navbar-right"  id="nvlist">
+    <li>
+        <a class="active" href="/Home/Index">Ana Sayfa</a>
+
+    </li>
+    <li><a href="/BenKimim/Index" class="menutabs">BANA DAİR</a></li>
+    <li><a href="/Koc/Index"  class="menutabs">Koçluk NEDİR?</a></li>
+
+    @foreach (var item in Model)
+    {
+        <li >
+            <a href="grid.html" class="menutabs">@item.Page.name</a>
+
+        </li>
+
+    }
+
+
+    <li >
+        <a href="/Blog/Index" class="menutabs">Blog</a>
+
+    </li>
+    <li ><a href="/Contact/Index" class="menutabs">İLETİŞİM</a></li>
+   
+</ul>
+    </div>
+<script type="text/javascript" src="~/js/jquery.min.js"></script>
+<script type="text/javascript" src="~/js/jquery.migrate.js"></script>
+<script type="text/javascript" src="~/js/jquery.migrate.js"></script>
+<script type="text/javascript" src="j~/s/jquery.migrate.js"></script>
+<script type="text/javascript" src="~/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="~/js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="~/js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/js/jquery.imagesloaded.min.js"></script>
+<script type="text/javascript" src="~/js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="~/js/retina-1.1.0.min.js"></script>
+<script type="text/javascript" src="~/js/plugins-scroll.js"></script>
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+<script type="text/javascript" src="~/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="~/js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="~/js/script.js"></script>
+
+<!-- Revolution slider -->
+<script type="text/javascript">
+
+        jQuery(document).on("ready", function () {
+
+            jQuery('.tp-banner').show().revolution(
+			{
+			    dottedOverlay: "none",
+			    delay: 10000,
+			    startwidth: 1140,
+			    startheight: 550,
+			    hideThumbs: 200,
+
+			    thumbWidth: 100,
+			    thumbHeight: 50,
+			    thumbAmount: 5,
+
+			    navigationType: "bullet",
+
+			    touchenabled: "on",
+			    onHoverStop: "off",
+
+			    swipe_velocity: 0.7,
+			    swipe_min_touches: 1,
+			    swipe_max_touches: 1,
+			    drag_block_vertical: false,
+
+			    parallax: "mouse",
+			    parallaxBgFreeze: "on",
+			    parallaxLevels: [7, 4, 3, 2, 5, 4, 3, 2, 1, 0],
+
+			    keyboardNavigation: "off",
+
+			    navigationHAlign: "center",
+			    navigationVAlign: "bottom",
+			    navigationHOffset: 0,
+			    navigationVOffset: "center",
+
+			    shadow: 0,
+
+			    spinner: "spinner4",
+
+			    stopLoop: "off",
+			    stopAfterLoops: -1,
+			    stopAtSlide: -1,
+
+			    shuffle: "off",
+
+			    autoHeight: "off",
+			    forceFullWidth: "off",
+
+
+
+			    hideThumbsOnMobile: "off",
+			    hideNavDelayOnMobile: 1500,
+			    hideBulletsOnMobile: "off",
+			    hideArrowsOnMobile: "off",
+			    hideThumbsUnderResolution: 0,
+
+			    hideSliderAtLimit: 0,
+			    hideCaptionAtLimit: 0,
+			    hideAllCaptionAtLilmit: 0,
+			    startWithSlide: 0,
+			    fullScreenOffsetContainer: ".header"
+			});
+
+        });	//ready
+
+        //isotope
+        jQuery(document).on("ready", function () {
+            var $container = $('.iso-call');
+            // init
+            $container.isotope({
+                // options
+                itemSelector: '.services-project, .project-post',
+                masonry: {
+                    columnWidth: '.default-size'
+                }
+            });
+        });	//ready
+</script>

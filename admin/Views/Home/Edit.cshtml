@@ -1,0 +1,64 @@
+﻿@model oylmData.Data.Page
+
+@{
+    ViewBag.Icon = "fa fa-files-o";
+    ViewBag.Title = "Sayfalar";
+    ViewBag.altbaslik = "Düzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section pagecss 
+    {<style>
+        .sagKenar {
+            float:right;
+        }
+    </style>
+    }
+    
+    @section pagescript{
+    <script>
+
+
+
+    $(function () {
+
+        setactive(0);
+    });
+
+    </script>
+    }
+    
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4></h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="form-group">
+                <label class = "control-label col-md-1"><b>Sayfa Adı : </b></label>
+
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" },@name="ad" })
+                    @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-1 col-md-5">
+                
+                    <input type="submit" value="Güncelle" class="btn btn-primary sagKenar" />
+             
+
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="col-md-offset-1 col-md-5">
+        @Html.ActionLink("Listeye Geri Dön", "Index", "","",new { @class = " sagKenar" })
+    </div>

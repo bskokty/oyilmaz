@@ -1,0 +1,13 @@
+﻿@model IEnumerable<oylmData.Data.Page>
+
+
+
+<select id="basliksec" name="basliksec">
+
+ <option value="-1">Siralamak için başlık seçiniz.</option>
+@foreach (var item in Model)
+{
+    <option  value="@item.ID">@item.name</option>
+   
+}
+</select>

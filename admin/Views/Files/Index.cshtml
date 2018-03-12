@@ -1,0 +1,71 @@
+﻿@model IEnumerable<oylmData.Data.sertifikalar>
+
+@{
+    ViewBag.Icon = "fa fa-file";
+    ViewBag.Title = "Belgeler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section pagecss
+    {
+    <style>
+        .beyaz {
+            color: #f9fafb;
+        }
+
+        .textstop {
+            width: 500px;
+            height: 35px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+}
+@section pagescript{
+    <script>
+
+
+
+    $(function () {
+
+        setactive(8);
+    });
+
+    </script>
+}
+<div id="yenialan" style="margin-top:-9px;">
+    <h5> @Html.ActionLink("+ Yeni Belge Ekle", "Create", "", new { @class = "btn btn-success" })</h5>
+    <div class="x_panel" style="margin-top:-9px;">
+
+        <p class="x_content">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Belge Adı
+                        </th>
+                    
+                        <th> </th>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                     
+
+                        <td>
+                            @Html.ActionLink("Güncelle", "Edit", new { id = item.id }) ||
+
+                            @Html.ActionLink("Sil", "Delete", new { id = item.id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+    </div>
+</div>

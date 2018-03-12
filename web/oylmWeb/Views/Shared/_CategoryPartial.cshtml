@@ -1,0 +1,39 @@
+﻿@model List<oylmData.Data.Page>
+
+
+
+
+
+<ul class="nav navbar-nav navbar-right" style="margin-top:auto">
+    <li class="drop">
+        <a class="active" href="/Home/Index">Ana Sayfa</a>
+
+    </li>
+    <li><a href="/Home/Index">Ben Kimim?</a></li>
+    <li><a href="/Home/Index">Koçluk Nedir?</a></li>
+
+    @foreach (var item in Model)
+    {
+        <li class="drop">
+            <a href="grid.html">@item.name</a>
+
+        </li>
+
+    }
+
+
+    <li class="drop">
+        <a href="/Blog/Index">Blog</a>
+
+    </li>
+    <li><a href="/Contact/Index">İletişim</a></li>
+    <li class="search drop">
+        <a href="#" class="open-search"><i class="fa fa-search"></i></a>
+        <form class="form-search">
+            <input type="search" placeholder="Search:" />
+            <button type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </li>
+</ul>
